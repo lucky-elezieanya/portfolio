@@ -1,26 +1,172 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Base Portfolio Color Palette */
+  --background: #0f1418;        /* Deep slate/midnight dark background */
+  --foreground: #f0f2f5;
+          /* Crisp light slate for high readability */
+  --primary: #20b2a6;           /* Vibrant developer cyan/blue accent */
+  --color-primary-foreground: #ffffff; /* White text for primary buttons/links */
+
+
+  --color-secondary: #1f2830;    /* Darker slate for secondary elements */
+  --color-secondary-foreground: #20b2a6; /* Teal accent for secondary text/buttons */
+
+  --muted: #252e37;           /* Muted grey-blue for secondary text/borders */
+  --muted-foreground: #7a8491; /* Lighter muted text for readability */
+
+  --card-bg: #111827;         /* Slightly lighter container/card background */
+  --border: #1e293b;          /* Subtle border color for cards and sections */
+  --radius: 0.75rem;          /* Default border radius for cards and buttons */
+  --color-highlight: #f5a623; /* Highlight color for call-to-action elements */
+  --color-surface: #1a2329; /* Surface color for elevated elements */
 }
 
-@theme inline {
+@theme {
+  /* Register custom colors so you can use bg-primary, text-muted, etc. */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-muted: var(--muted);
+  --color-card: var(--card-bg);
+  --color-border: var( --border);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary-foreground: var(--color-primary-foreground);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-foreground: var(--color-secondary-foreground);
+
+  /* Custom font families  */
+  --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+
+  /* Custom Border Radius for modern rounded cards and buttons */
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
 }
 
+/* Optional: System dark mode override safety */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #050505;
+    --card-bg: #0f0f11;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  /* Smooth scrolling for anchor links (essential for portfolio sections) */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+  }
+.font-serif {
+font-family: "Playfair Display", serif;
+}
+}
+
+@layer components {
+  /* Glassmorphism effect for cards and navbars */
+  .glass {
+    background: color-mix(in srgb, var(--color-surface) 50%, transparent);
+    backdrop-filter: blur(16px);
+    border: color-mix(in srgb, var(--color-border) 50%, transparent);
+
+    
+  }
+  .glass-strong {
+    background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    backdrop-filter: blur(20px);
+    border: color-mix(in srgb, var(--color-border) 60%, transparent);
+  }
+  .glow-text {
+    text-shadow: 0 0 30px  color-mix(in srgb, var(--color-primary) 50%, transparent);
+
+  }
+}
+@layer utilities {
+  /* Custom utility for text shadows on headings */
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  @keyframes fadeIn {
+    from { opacity: 0;
+    transform: translateY(20px); 
+    filter: blur(10px);
+  }
+    to { opacity: 1; 
+     transform: translateY(0); 
+     filter: blur(0px);}
+  }
+
+@keyframes slow-drift {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translateY(-15px, -20px); }
+   25% { transform: translateY(20px, -30px); }
+    75% { transform: translateY(30px, 10px); }
+}
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out both;
+  }
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+  .animation-delay-800 {
+    animation-delay: 800ms;
+  }
+  /* @keyframes animated-border {
+    0% {
+      stroke-dashoffset: 400;
+    }
+    100% {
+      stroke-dsashoffset: -550;
+    }
+  }
+
+  .group:hover .animated-border-path {
+    animation: animated-border 1.5s linear infinite
+  } */
+
+  
+@keyframes animated-border {
+  from {
+    stroke-dasharray: 15 85;
+    stroke-dashoffset: 100;
+  }
+
+  to {
+    stroke-dasharray: 15 85;
+    stroke-dashoffset: 0;
+  }
+}
+
+.group:hover .animated-border-path {
+  animation: animated-border 1.5s linear infinite;
+}
+
+
+  .animated-border:hover {
+    background-color: color-mix(in srgb, #26c4b8 15%, transparent);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 0 20px color-mix(in srgb, #26c4b8 20%, transparent);
+
+  }
 }
