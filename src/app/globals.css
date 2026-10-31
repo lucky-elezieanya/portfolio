@@ -84,7 +84,11 @@ font-family: "Playfair Display", serif;
   }
   .glow-text {
     text-shadow: 0 0 30px  color-mix(in srgb, var(--color-primary) 50%, transparent);
+  }
 
+  .glow-border {
+     box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 50%, transparent),
+    inset 0 0 10px color-mix(in srgb, var(--color-primary) 5%, transparent); 
   }
 }
 @layer utilities {
@@ -132,20 +136,29 @@ font-family: "Playfair Display", serif;
   .animation-delay-800 {
     animation-delay: 800ms;
   }
-  /* @keyframes animated-border {
-    0% {
-      stroke-dashoffset: 400;
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
     }
-    100% {
-      stroke-dsashoffset: -550;
+    50% {
+      transform: translateY(-10px);
     }
   }
-
-  .group:hover .animated-border-path {
-    animation: animated-border 1.5s linear infinite
-  } */
-
+ 
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
   
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+
+
 @keyframes animated-border {
   from {
     stroke-dasharray: 15 85;
