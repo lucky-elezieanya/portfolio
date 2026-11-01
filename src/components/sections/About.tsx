@@ -21,11 +21,6 @@ const highlights = [
     icon: Lightbulb,
     title: 'Problem Solving',
     description: 'I have a strong analytical mindset and enjoy tackling complex problems, finding innovative solutions to technical challenges.', 
-  },
-  {
-    icon: Lightbulb,
-    title: 'Continuous Learning',
-    description: 'I am committed to staying up-to-date with the latest technologies and best practices in web development, constantly improving my skills and knowledge.',
   }
 ]
 
@@ -63,7 +58,6 @@ const About = () => {
         </div>
         {/* right column */}
         <div className="space-y-8">
-          <h3 className="text-2xl font-bold text-primary/80">My Skills</h3>
           <div className="grid sm:grid-cols-2 gap-4">
             {highlights.map((highlight, index) => (
               <div key={index}

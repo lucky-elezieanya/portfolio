@@ -1,8 +1,8 @@
 import React from 'react'
 import Button from '../Button'
-import { ArrowRight } from 'lucide-react'
-import DownloadButton from '../DownloadButton'
+import { ArrowRight, Download } from 'lucide-react'
 import { FaArrowDown, FaFacebook, FaFacebookF, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import AnimatedButton from '../AnimatedButton'
 
 const skills = [
     "React",
@@ -60,7 +60,10 @@ const Hero = () => {
     {/* CTA */}
     <div className='flex gap-10'>
         <Button size='lg'>Contact Me <ArrowRight className="w-5 h-5" /></Button>
-        <DownloadButton/>
+        <AnimatedButton>
+             <Download className="h-4 w-4" />
+        <span>Download CV</span>
+        </AnimatedButton>
     </div>
     {/* socials */}
     <div className='flex items-center gap-4 animation-fade-in animation-delay-400'>
