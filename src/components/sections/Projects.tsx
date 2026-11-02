@@ -12,10 +12,10 @@ const projects = [
     link: '#',
     github: "#"
   },
-  {
+  { 
     title: 'E-Commerce Platform',
     description: 'A comprehensive solution for online retail operations.',
-    image: '/images/project2.jpg',
+    image: '/images/project2.png',
     tags: ['React', 'Node.js', 'MongoDB'],
     link: '#',
     github: "#"
@@ -94,7 +94,7 @@ const Projects = () => {
         </div>
         {/* View all CTA */}
         <div className="text-center mt-12 animate-fade-in animation-delay-500">
-          <AnimatedButton>
+          <AnimatedButton href="#projects">
             View All Projects
             <ArrowUpRight className='w-5 h-5'/>
           </AnimatedButton>

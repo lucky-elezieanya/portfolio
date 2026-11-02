@@ -60,7 +60,7 @@ const Hero = () => {
     {/* CTA */}
     <div className='flex gap-10'>
         <Button size='lg'>Contact Me <ArrowRight className="w-5 h-5" /></Button>
-        <AnimatedButton>
+        <AnimatedButton fileName='my-cv.pdf' href='/assets/my-cv.pdf'  download={true}>
              <Download className="h-4 w-4" />
         <span>Download CV</span>
         </AnimatedButton>
@@ -71,10 +71,10 @@ const Hero = () => {
         
             {
                 [
-                    {icon: FaGithub, href: '#'},
-                    {icon: FaTwitter, href: '#'},
-                    {icon: FaLinkedin, href: '#'},
-                    {icon: FaFacebookF, href: '#'},
+                    {icon: FaGithub, href: 'https://github.com/lucky-elezieanya/'},
+                    {icon: FaTwitter, href: 'https://twitter.com/lucky_elezieanya'},
+                    {icon: FaLinkedin, href: 'https://linkedin.com/in/lucky-elezieanya'},
+                    {icon: FaFacebookF, href: 'https://facebook.com/lucky.elezieanya'},
                 ].map((social, index) => (
                     <a key={index} href={social.href} target="_blank" rel="noopener noreferrer" className='glass rounded-full hover:bg-primary/10 hover:text-primary transition-colors transition-all duration-300 p-2'>
                         <social.icon className='w-5 h-5' />
@@ -89,7 +89,7 @@ const Hero = () => {
         <div className="relative max-w-md mx-auto">
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/30 via-transparent to-primary/10 blur-2xl animate-pulse"/>
             <div className="relative glass rounded-3xl p-2 glow-border">
-                <img src="/profile-picture.png" alt="Lucky Elezieanya" 
+                <img src="/profile-photo.png" alt="Lucky Elezieanya" 
             className='w-full aspect-[4/5] object-cover rounded-2xl'/>
             {/* floating badge */}
             <div className="absolute -bottom-4 -right-4  glass px-4 py-3 rounded-xl text-sm font-semibold shadow-lg animate-float"   >

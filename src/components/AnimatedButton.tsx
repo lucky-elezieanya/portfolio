@@ -1,13 +1,28 @@
 
-
 import React from "react";
-import { Download } from "lucide-react";
 
-export default function AnimatedButton({children}:{children: React.ReactNode}) {
+interface AnimatedButtonProps {
+  children: React.ReactNode;
+  href?: string;
+  download?: boolean;
+  fileName?: string;
+  className?: string;
+}
+
+export default function AnimatedButton({
+  children,
+  href = "#",
+  download = false,
+  fileName = "file.pdf",
+  className = "",
+}: AnimatedButtonProps) {
   return (
-    <button
-      className="
-        relative group overflow-hidden
+    <a
+      href={href}
+      download={download ? fileName : undefined}
+      className={`
+        relative group inline-flex items-center justify-center
+        overflow-hidden
         rounded-full
         border border-border
         bg-transparent
@@ -22,9 +37,8 @@ export default function AnimatedButton({children}:{children: React.ReactNode}) {
         focus-visible:ring-2
         focus-visible:ring-primary
         focus-visible:ring-offset-2
-        disabled:opacity-50
-        disabled:cursor-not-allowed
-      "
+        ${className}
+      `}
     >
       {/* Animated SVG Border */}
       <svg
@@ -32,14 +46,15 @@ export default function AnimatedButton({children}:{children: React.ReactNode}) {
         viewBox="0 0 200 60"
         preserveAspectRatio="none"
         fill="none"
+        aria-hidden="true"
       >
         <rect
-          x="2"
-          y="2"
-          width="198"
-          height="58"
-          rx="29"
-          ry="29"
+          x="2.5"
+          y="2.5"
+          width="195"
+          height="55"
+          rx="27.5"
+          ry="27.5"
           pathLength="100"
           className="
             animated-border-path
@@ -53,16 +68,9 @@ export default function AnimatedButton({children}:{children: React.ReactNode}) {
       </svg>
 
       {/* Button Content */}
-      <a
-        href="/#"
-        download="CV.pdf"
-        className="
-          relative z-10
-          inline-flex items-center gap-2
-        "
-      >
-       {children}
-      </a>
-    </button>
+      <span className="relative z-10 inline-flex items-center gap-2">
+        {children}
+      </span>
+    </a>
   );
 }
